@@ -57,7 +57,7 @@ export const properties: Property[] = [
     area: 310,
     type: "Haus",
     image:
-      "https://images.unsplash.com/photo-1605276374104-dee2abb0bca1?w=800&q=80",
+      "https://images.unsplash.com/photo-1637946095935-75936cf3c11c?w=800&q=80",
   },
   {
     id: "5",
