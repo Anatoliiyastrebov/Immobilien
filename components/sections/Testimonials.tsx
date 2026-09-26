@@ -27,7 +27,7 @@ export function Testimonials() {
         <SectionHeading
           label="Kundenbewertungen"
           title="Was unsere Mandanten sagen"
-          description="Diskretion verhindert viele Namen in der Öffentlichkeit — diese Stimmen dürfen wir zeigen."
+          description="Beispielbewertungen für dieses Portfolio-Projekt — Namen und Zitate sind frei erfunden."
           dark
           align="center"
         />

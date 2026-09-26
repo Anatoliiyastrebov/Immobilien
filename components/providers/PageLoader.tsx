@@ -4,17 +4,22 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { AGENCY_SHORT } from "@/lib/constants";
 
-const STORAGE_KEY = "wp-visited";
+// Show the intro only when a visitor arrives from outside the site. Deciding
+// from the navigation itself instead of a sessionStorage flag keeps the site
+// free of anything stored on the device (§ 25 TDDDG).
+function isEntryNavigation() {
+  const [nav] = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[];
+  if (nav && nav.type !== "navigate") return false;
+  if (!document.referrer) return true;
+  return new URL(document.referrer).origin !== window.location.origin;
+}
 
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const visited = sessionStorage.getItem(STORAGE_KEY);
-    if (visited) return;
-
-    sessionStorage.setItem(STORAGE_KEY, "true");
+    if (!isEntryNavigation()) return;
 
     let hideTimer: number;
     const showTimer = window.setTimeout(() => {

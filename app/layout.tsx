@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import { AGENCY_NAME } from "@/lib/constants";
+import { AGENCY_NAME, SITE_URL } from "@/lib/constants";
 import { agency } from "@/lib/data/agency";
 import { PageLoader } from "@/components/providers/PageLoader";
 import "./globals.css";
@@ -36,9 +36,10 @@ export const metadata: Metadata = {
     type: "website",
     siteName: AGENCY_NAME,
   },
+  // Portfolio demo of a fictional agency — keep it out of search results.
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 
@@ -48,7 +49,7 @@ const jsonLd = {
   name: AGENCY_NAME,
   description:
     "Exklusive Immobilienberatung in München. Portfolio-Projekt — keine echte Agentur.",
-  url: "https://weiss-partner-immobilien.de",
+  url: SITE_URL,
   telephone: agency.contact.phone,
   email: agency.contact.email,
   address: {

@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { agency } from "@/lib/data/agency";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, useMotionConfig } from "@/lib/motion";
+
+const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.5!2d11.581!3d48.139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75f759f089c1%3A0x64cd70e1b59a4efe!2sMaximilianstra%C3%9Fe%2C%20M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde";
 
 interface FormErrors {
   name?: string;
@@ -17,6 +21,7 @@ interface FormErrors {
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [mapConsent, setMapConsent] = useState(false);
   const { transition, viewport, prefersReducedMotion } = useMotionConfig();
 
   const validate = (form: FormData): FormErrors => {
@@ -73,7 +78,7 @@ export function Contact() {
                   Vielen Dank
                 </p>
                 <p className="mt-4 text-muted">
-                  Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                  Dies ist ein Demo-Formular — Ihre Nachricht wurde nicht übermittelt.
                 </p>
               </div>
             ) : (
@@ -134,6 +139,9 @@ export function Contact() {
                 <Button type="submit" variant="primary" size="lg">
                   Nachricht senden
                 </Button>
+                <p className="text-xs text-muted">
+                  Demo-Formular: Eingaben werden weder übermittelt noch gespeichert.
+                </p>
               </form>
             )}
           </motion.div>
@@ -184,17 +192,37 @@ export function Contact() {
               </li>
             </ul>
 
-            <div className="aspect-video w-full overflow-hidden grayscale transition-[filter] hover:grayscale-0">
-              <iframe
-                title="Standort Weiß & Partner Immobilien auf Google Maps"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.5!2d11.581!3d48.139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75f759f089c1%3A0x64cd70e1b59a4efe!2sMaximilianstra%C3%9Fe%2C%20M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="aspect-video w-full overflow-hidden">
+              {mapConsent ? (
+                <iframe
+                  title="Standort Weiß & Partner Immobilien auf Google Maps"
+                  src={MAP_EMBED_URL}
+                  className="grayscale transition-[filter] hover:grayscale-0"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                // Two-click solution: nothing is requested from Google until the
+                // visitor agrees (Art. 6 Abs. 1 lit. a DSGVO, § 25 TDDDG).
+                <div className="flex h-full flex-col items-center justify-center gap-4 border border-foreground/10 bg-foreground/5 p-6 text-center">
+                  <MapPin className="h-6 w-6 text-gold" aria-hidden />
+                  <p className="max-w-sm text-sm text-muted">
+                    Beim Laden der Karte werden Daten, u. a. Ihre IP-Adresse, an Google
+                    übertragen. Details in der{" "}
+                    <Link href="/datenschutz" className="text-gold underline">
+                      Datenschutzerklärung
+                    </Link>
+                    .
+                  </p>
+                  <Button type="button" variant="primary" onClick={() => setMapConsent(true)}>
+                    Karte laden
+                  </Button>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
-    // No Next.js image optimizer in a static export — Unsplash's CDN
-    // resizes and converts formats instead.
+    // No Next.js image optimizer in a static export — the loader picks
+    // one of the pre-sized copies in public/images.
     loader: "custom",
     loaderFile: "./lib/image-loader.ts",
   },

@@ -1,3 +1,7 @@
+# Portfolio demo — keep every page and image out of search results.
+/*
+  X-Robots-Tag: noindex, nofollow
+
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 

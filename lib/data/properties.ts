@@ -20,8 +20,7 @@ export const properties: Property[] = [
     rooms: 5,
     area: 285,
     type: "Wohnung",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    image: "/images/objekt-1.webp",
   },
   {
     id: "2",
@@ -32,8 +31,7 @@ export const properties: Property[] = [
     rooms: 8,
     area: 420,
     type: "Haus",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    image: "/images/objekt-2.webp",
   },
   {
     id: "3",
@@ -44,8 +42,7 @@ export const properties: Property[] = [
     rooms: 4,
     area: 165,
     type: "Wohnung",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    image: "/images/objekt-3.webp",
   },
   {
     id: "4",
@@ -56,8 +53,7 @@ export const properties: Property[] = [
     rooms: 6,
     area: 310,
     type: "Haus",
-    image:
-      "https://images.unsplash.com/photo-1637946095935-75936cf3c11c?w=800&q=80",
+    image: "/images/objekt-4.webp",
   },
   {
     id: "5",
@@ -68,8 +64,7 @@ export const properties: Property[] = [
     rooms: 3,
     area: 142,
     type: "Wohnung",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    image: "/images/objekt-5.webp",
   },
   {
     id: "6",
@@ -80,7 +75,6 @@ export const properties: Property[] = [
     rooms: 7,
     area: 380,
     type: "Haus",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    image: "/images/objekt-6.webp",
   },
 ];

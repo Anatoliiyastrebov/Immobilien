@@ -2,13 +2,13 @@
 
 import type { ImageLoaderProps } from "next/image";
 
-export default function imageLoader({ src, width, quality }: ImageLoaderProps) {
-  if (!src.startsWith("https://images.unsplash.com/")) return src;
+// Photos live in public/images as pre-sized copies (`name-640.webp`, …),
+// so no visitor data goes to a third-party image CDN.
+const WIDTHS = [640, 1080, 1920];
 
-  const url = new URL(src);
-  url.searchParams.set("w", String(width));
-  url.searchParams.set("q", String(quality ?? 75));
-  url.searchParams.set("auto", "format");
-  url.searchParams.set("fit", "crop");
-  return url.toString();
+export default function imageLoader({ src, width }: ImageLoaderProps) {
+  if (!src.startsWith("/images/")) return src;
+
+  const size = WIDTHS.find((w) => w >= width) ?? WIDTHS[WIDTHS.length - 1];
+  return src.replace(/\.webp$/, `-${size}.webp`);
 }

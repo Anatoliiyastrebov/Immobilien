@@ -3,11 +3,12 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
+  // Crawling stays allowed so search engines can see the noindex directive
+  // (meta tag in app/layout.tsx, X-Robots-Tag in public/_headers).
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://weiss-partner-immobilien.de/sitemap.xml",
   };
 }
