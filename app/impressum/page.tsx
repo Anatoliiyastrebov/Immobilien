@@ -28,7 +28,7 @@ export default function ImpressumPage() {
             <section>
               <h2 className="font-serif text-xl text-foreground">Angaben gemäß § 5 DDG</h2>
               <p>
-                Weiß & Partner Immobilien GmbH
+                Aurelhaus Immobilien GmbH
                 <br />
                 Maximilianstraße 35
                 <br />
@@ -43,9 +43,9 @@ export default function ImpressumPage() {
             <section>
               <h2 className="font-serif text-xl text-foreground">Vertreten durch</h2>
               <p>
-                Dr. Markus Weiß, Geschäftsführer
+                Dr. Clara Hofmann, Geschäftsführerin
                 <br />
-                Sabine Partner, Geschäftsführerin
+                Felix Amann, Geschäftsführer
               </p>
             </section>
 
@@ -76,7 +76,7 @@ export default function ImpressumPage() {
               <h2 className="font-serif text-xl text-foreground">
                 Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
               </h2>
-              <p>Dr. Markus Weiß, Maximilianstraße 35, 80539 München</p>
+              <p>Dr. Clara Hofmann, Maximilianstraße 35, 80539 München</p>
             </section>
 
             <section>

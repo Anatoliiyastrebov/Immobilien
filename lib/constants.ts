@@ -21,5 +21,5 @@ export const SOCIAL_LINKS = [
 
 export const SITE_URL = "https://immobilienagentur.anatoliiyastrebov.workers.dev";
 
-export const AGENCY_NAME = "Weiß & Partner Immobilien";
-export const AGENCY_SHORT = "Weiß & Partner";
+export const AGENCY_NAME = "Aurelhaus Immobilien";
+export const AGENCY_SHORT = "Aurelhaus";

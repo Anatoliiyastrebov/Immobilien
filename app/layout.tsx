@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: `${AGENCY_NAME} | Exklusive Immobilien in München`,
   description:
-    "Weiß & Partner Immobilien — exklusive Wohn- und Anlageimmobilien in München und ganz Deutschland. Persönliche Beratung auf höchstem Niveau. Portfolio-Projekt.",
+    "Aurelhaus Immobilien — exklusive Wohn- und Anlageimmobilien in München und ganz Deutschland. Persönliche Beratung auf höchstem Niveau. Portfolio-Projekt.",
   keywords: [
     "Immobilienmakler München",
     "Luxusimmobilien",

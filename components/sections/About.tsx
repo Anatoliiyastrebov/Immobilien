@@ -19,7 +19,7 @@ export function About() {
         <SectionHeading
           label="Über uns"
           title="Vertrauen, das man spürt"
-          description="Weiß & Partner steht für Beratung auf Augenhöhe — mit dem Anspruch, den deutschen Premium-Markt seit 2008 zu definieren."
+          description="Aurelhaus steht für Beratung auf Augenhöhe — mit dem Anspruch, den deutschen Premium-Markt seit 2008 zu definieren."
         />
 
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -83,7 +83,7 @@ export function About() {
           >
             <Image
               src={agency.officeImage}
-              alt="Büro von Weiß & Partner Immobilien in München"
+              alt="Büro von Aurelhaus Immobilien in München"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

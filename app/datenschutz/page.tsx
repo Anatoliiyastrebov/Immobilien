@@ -36,7 +36,7 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="font-serif text-xl text-foreground">1. Verantwortlicher</h2>
               <p>
-                Weiß & Partner Immobilien GmbH (fiktiv)
+                Aurelhaus Immobilien GmbH (fiktiv)
                 <br />
                 {agency.contact.fullAddress}
                 <br />

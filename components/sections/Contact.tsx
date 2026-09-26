@@ -195,7 +195,7 @@ export function Contact() {
             <div className="aspect-video w-full overflow-hidden">
               {mapConsent ? (
                 <iframe
-                  title="Standort Weiß & Partner Immobilien auf Google Maps"
+                  title="Standort Aurelhaus Immobilien auf Google Maps"
                   src={MAP_EMBED_URL}
                   className="grayscale transition-[filter] hover:grayscale-0"
                   width="100%"
