@@ -29,8 +29,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Cloudflare
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site is built as a [static export](https://nextjs.org/docs/app/guides/static-exports) (`output: "export"`) into `out/` and served by [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) — configuration in `wrangler.jsonc`, response headers in `public/_headers`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run preview   # build + serve locally in the Workers runtime (wrangler dev)
+npm run deploy    # build + deploy to Cloudflare (wrangler deploy)
+```
+
+Because there is no server, features that need one (Server Actions, Route Handlers reading the request, `cookies()`, ISR, Next.js image optimization) are unavailable. Images go through `lib/image-loader.ts`, which lets Unsplash's CDN resize them.
